@@ -158,7 +158,27 @@ function functionalitySwitcher(uniqueid, effect){
     case "Custom Script":
         customScriptSettings(uniqueid);
         break;
+    case "Delay":
+        delaySettings(uniqueid);
+        break;
     }
+}
+
+function delaySettings(uniqueid) {
+    var effectTemplate = `
+        <div class="effect-specific-title"><h4>How long should it show?</h4></div>
+        <div class="input-group">
+            <span class="input-group-addon" id="delay-length-effect-type">Seconds</span>
+            <input type="text" class="form-control" id="delay-length-setting" aria-describedby="delay-length-effect-type" type="number">
+        </div>
+
+        <div class="effect-info">
+            This effect requires the overlay file to be loaded into your streaming software. Look in the Firebot folder for "/overlay/firebot.html". Also, please be aware that this button is EXTREMELY prone to error due to open ended nature.
+        </div>
+    `;
+
+    // Put onto the page.
+    $('.panel'+uniqueid+' .effect-settings-panel').append(effectTemplate);
 }
 
 // Custom Script Button Settings
